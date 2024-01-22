@@ -1,0 +1,52 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCIE = [
+    {
+    date: "2022 - Actualmente ( 3er año )",
+    title: "Licenciatura en Ciencia de Datos.",
+    description:
+        "Universidad Católica de Salta",
+    
+    },
+    {
+        date: "2023 - Completado",
+        title: "Carrera Data Analyst.",
+        description:
+            "Coderhouse",
+        link: "https://www.linkedin.com/in/lucasgvillalba/overlay/1635532490580/single-media-viewer/?profileId=ACoAAD15pDkBfyoxzE60Hgid-MLBsZdSUDCV6A8"
+    },
+
+    {
+        date: "2023 - Completado",
+        title: "Bootcamp Data Science para finanzas.",
+        description:
+            "European Market College",
+            link: "https://www.linkedin.com/in/lucasgvillalba/overlay/1635544335559/single-media-viewer/?profileId=ACoAAD15pDkBfyoxzE60Hgid-MLBsZdSUDCV6A8"
+    },
+
+    {
+        date: "2017 - Completado",
+        title: "Bachiller Ciencias Sociales y Humanidades.",
+        description:
+            "Instituto Parroquial San Alfonso",
+    },
+
+
+
+
+
+
+
+
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        EXPERIENCIE.map((experiencie) => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experiencie} />
+            </li>
+        ))
+    }
+</ol>

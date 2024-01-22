@@ -1,0 +1,116 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import LinkButton from "./LinkButton.astro"
+import ExcelButton from "./icons/Excel.astro"
+import PowerBIbutton from "../components/icons/PowerBI.astro"
+import SQLbutton from "../components/icons/SQL.astro"
+import TableauButton from "../components/icons/Tableau.astro"
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: NextJS,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+    
+    EXCEL: {
+        name: "Excel",
+        class: "bg-[#4DBA7A] text-white",
+        icon: ExcelButton,
+    },
+
+    POWERBI: {
+        name: "Power BI",
+        class: "bg-[#ECA918] text-white",
+        icon: PowerBIbutton,
+    },
+
+    TABELAU: {
+        name: "Tableau",
+        class: "bg-[#B242E6] text-white",
+        icon: TableauButton,
+    },
+
+
+    SQL: {
+        name: "SQL",
+        class: "bg-[#D3ED14] text-white",
+        icon: SQLbutton,
+    }
+    ,
+}
+const PROJECTS = [
+    {
+        title: "• COVID 19 - Impacto especifico generado en la Republica Argentina",
+        description:" - Octubre 2023",
+        image: "/dist/proyects/covid.webp",
+        tags: [TAGS.POWERBI,TAGS.SQL],
+        
+},
+
+{
+        title: "• Analisis Futbolistico - Lionel Messi VS Cristiano Ronaldo",
+        description:
+        " - Septiembre 2023",
+        link: "https://public.tableau.com/app/profile/lucas.gaston.villalba/viz/EntregaFinalVillalba/Dashboard1",
+        image: "/dist/proyects/messironaldo.webp",
+        tags: [TAGS.TABELAU,TAGS.SQL],
+        
+},
+
+
+
+{
+        title: "• Gas Natural Argentino periodo 2019-2022",
+        description:
+        " - julio 2023",
+        github: "https://github.com/pheralb/svgl",
+        image: "/dist/proyects/exceltp.webp",
+        tags: [TAGS.EXCEL],
+        
+},
+
+
+
+
+
+]
+---
+
+<section class="flex flex-col gap-y-16">
+    {
+        PROJECTS.map(({ image, title, description, tags, link, github }) => (
+            <article>
+                <h3 class="text-2xl font-semibold text-yellow-400 dark:text-yellow-200 mb-2">
+                    {title}
+                </h3>
+                <p class="text-lg mb-4 text-pretty">{description}</p>
+                <ul class="flex gap-x-2 flex-row mb-2">
+                    {tags.map((tag) => (
+                        <li>
+                            <span
+                                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                            >
+                                <tag.icon class="size-4" />
+                                {tag.name}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+                <img
+                    loading="lazy"
+                    class="rounded shadow-2xl shadow-white/10 aspect-video"
+                    src={image}
+                    alt={`Captura de pantalla del proyecto ${image}`}
+                />
+            </article>
+        ))
+    }
+</section>
